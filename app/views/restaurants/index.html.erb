@@ -9,8 +9,6 @@
       <th>Description</th>
       <th>Cnpj</th>
       <th>Fantasyname</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
       <th>City</th>
       <th>Category</th>
       <th colspan="3"></th>
@@ -24,10 +22,8 @@
         <td><%= restaurant.description %></td>
         <td><%= restaurant.cnpj %></td>
         <td><%= restaurant.fantasyName %></td>
-        <td><%= restaurant.latitude %></td>
-        <td><%= restaurant.longitude %></td>
-        <td><%= restaurant.city.name %></td>
-        <td><%= restaurant.category.name %></td>
+        <td><%= restaurant.city_id %></td>
+        <td><%= restaurant.category_id %></td>
         <td><%= link_to 'Show', restaurant %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
         <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
