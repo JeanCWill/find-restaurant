@@ -5,7 +5,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.where("user_id = " + current_user.id.to_s)
   end
 
   # GET /restaurants/1
