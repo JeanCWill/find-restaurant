@@ -6,9 +6,11 @@
 
     function initialize()
     {
-        //if (${local.latLng} != null) {
-            //myCenter = new google.maps.LatLng(${local.latitude}, ${local.longitude});
-        //} else
+        if (document.getElementById("restaurant_cnpj").value != null &&
+            document.getElementById("restaurant_cnpj").value != "") {
+            myCenter = new google.maps.LatLng(document.getElementById("restaurant_latitude").value,
+                      document.getElementById("restaurant_longitude").value);
+        } else
          if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else {
@@ -16,7 +18,7 @@
                     -52.672061920166016);
         }
 
-        setTimeout(configuraMapa, 2000);
+        setTimeout(configuraMapa, 3000);
     }
 
     function showPosition(position) {
@@ -114,13 +116,13 @@
 
   <div class="field">
     <%= f.label :city_id %>
-    <%= select(:modelo, :city_id, City.all.collect {|c| [ c.name, c.id ] }) %>
+    <%= collection_select(:restaurant, :city_id, City.all, :id, :name) %>
 
   </div>
 
   <div class="field">
     <%= f.label :category_id %>
-    <%= select(:modelo, :category_id, Category.all.collect {|c| [ c.name, c.id ] }) %>
+    <%= collection_select(:restaurant, :category_id, Category.all, :id, :name) %>
 
   </div>
 

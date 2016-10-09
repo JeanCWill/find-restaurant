@@ -5,8 +5,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    #@restaurants = Restaurant.where("user_id = " + current_user.id.to_s)
-    @restaurants = Restaurant.all();
+    @restaurants = Restaurant.where("user_id = " + current_user.id.to_s)
   end
 
   # GET /restaurants/1
@@ -27,11 +26,13 @@ class RestaurantsController < ApplicationController
   # POST /restaurants.json
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.user_id = current_user.id
+    @restaurant.save()
 
     respond_to do |format|
       if @restaurant.save
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
-        format.json { render :show, status: :created, location: @restaurant }
+        format.json { render :index, status: :created, location: @restaurant }
       else
         format.html { render :new }
         format.json { render json: @restaurant.errors, status: :unprocessable_entity }
@@ -45,7 +46,7 @@ class RestaurantsController < ApplicationController
     respond_to do |format|
       if @restaurant.update(restaurant_params)
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
-        format.json { render :show, status: :ok, location: @restaurant }
+        format.json { render :index, status: :ok, location: @restaurant }
       else
         format.html { render :edit }
         format.json { render json: @restaurant.errors, status: :unprocessable_entity }
