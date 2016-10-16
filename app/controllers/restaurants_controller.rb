@@ -1,11 +1,15 @@
 class RestaurantsController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.where("user_id = " + current_user.id.to_s)
+    if current_user
+      @restaurants = Restaurant.where("user_id = " + current_user.id.to_s)
+    else
+      @restaurants = Restaurant.all
+    end
   end
 
   # GET /restaurants/1
