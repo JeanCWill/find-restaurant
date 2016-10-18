@@ -1,75 +1,4 @@
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBjlK1Nh2kb7v3k1VEkpyPV07aRwf4YU9I"></script>
-<script>
-    var map;
-    var myCenter;// = new google.maps.LatLng(51.508742, -0.120850);
-    var markers = [];
-
-    function initialize()
-    {
-        if (document.getElementById("restaurant_cnpj").value != null &&
-            document.getElementById("restaurant_cnpj").value != "") {
-            myCenter = new google.maps.LatLng(document.getElementById("restaurant_latitude").value,
-                      document.getElementById("restaurant_longitude").value);
-        } else
-         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            myCenter = new google.maps.LatLng(-26.227103281705933,
-                    -52.672061920166016);
-        }
-
-        setTimeout(configuraMapa, 3000);
-    }
-
-    function showPosition(position) {
-        myCenter = new google.maps.LatLng(position.coords.latitude,
-                position.coords.longitude);
-    }
-
-    function configuraMapa() {
-        var mapProp = {
-            center: myCenter,
-            zoom: 5,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-
-        map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-
-        google.maps.event.addListener(map, 'click', function (event) {
-            placeMarker(event.latLng);
-        });
-
-        var marker = new google.maps.Marker({
-            position: myCenter,
-            map: map
-        });
-
-        var latLng = myCenter.toString().replace("(","").replace(")", "").split(", ");
-        document.getElementById("restaurant_latitude").value = latLng[0];
-        document.getElementById("restaurant_longitude").value = latLng[1];
-
-        markers.push(marker);
-    }
-
-    function placeMarker(location) {
-        var latLng = location.toString().replace("(","").replace(")", "").split(", ");
-        document.getElementById("restaurant_latitude").value = latLng[0];
-        document.getElementById("restaurant_longitude").value = latLng[1];
-
-        var marker = new google.maps.Marker({
-            position: location,
-            map: map
-        });
-
-        for (i = 0; i < markers.length; i++) {
-            markers[i].setMap(null);
-        }
-
-        markers.push(marker);
-    }
-
-    google.maps.event.addDomListener(window, 'load', initialize);
-</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjlK1Nh2kb7v3k1VEkpyPV07aRwf4YU9I"></script>
 
 <%= form_for(restaurant) do |f| %>
   <% if restaurant.errors.any? %>
@@ -132,3 +61,76 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+    var map;
+    var myCenter;// = new google.maps.LatLng(51.508742, -0.120850);
+    var markers = [];
+
+    function initialize()
+    {
+        if (document.getElementById("restaurant_cnpj").value != null &&
+            document.getElementById("restaurant_cnpj").value != "") {
+            myCenter = new google.maps.LatLng(document.getElementById("restaurant_latitude").value,
+                      document.getElementById("restaurant_longitude").value);
+        } else
+         if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            myCenter = new google.maps.LatLng(-26.227103281705933,
+                    -52.672061920166016);
+        }
+
+        configuraMapa();
+        //setTimeout(configuraMapa, 3000);
+    }
+
+    function showPosition(position) {
+        myCenter = new google.maps.LatLng(position.coords.latitude,
+                position.coords.longitude);
+    }
+
+    function configuraMapa() {
+        var mapProp = {
+            center: myCenter,
+            zoom: 5,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+        google.maps.event.addListener(map, 'click', function (event) {
+            placeMarker(event.latLng);
+        });
+
+        var marker = new google.maps.Marker({
+            position: myCenter,
+            map: map
+        });
+
+        var latLng = myCenter.toString().replace("(","").replace(")", "").split(", ");
+        document.getElementById("restaurant_latitude").value = latLng[0];
+        document.getElementById("restaurant_longitude").value = latLng[1];
+
+        markers.push(marker);
+    }
+
+    function placeMarker(location) {
+        var latLng = location.toString().replace("(","").replace(")", "").split(", ");
+        document.getElementById("restaurant_latitude").value = latLng[0];
+        document.getElementById("restaurant_longitude").value = latLng[1];
+
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+
+        for (i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+        }
+
+        markers.push(marker);
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
