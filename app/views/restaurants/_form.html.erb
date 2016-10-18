@@ -73,21 +73,20 @@
             document.getElementById("restaurant_cnpj").value != "") {
             myCenter = new google.maps.LatLng(document.getElementById("restaurant_latitude").value,
                       document.getElementById("restaurant_longitude").value);
-        } else
-         if (navigator.geolocation) {
+            configuraMapa();
+        } else if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else {
             myCenter = new google.maps.LatLng(-26.227103281705933,
                     -52.672061920166016);
+            configuraMapa();
         }
-
-        configuraMapa();
-        //setTimeout(configuraMapa, 3000);
     }
 
     function showPosition(position) {
         myCenter = new google.maps.LatLng(position.coords.latitude,
                 position.coords.longitude);
+        configuraMapa();
     }
 
     function configuraMapa() {
