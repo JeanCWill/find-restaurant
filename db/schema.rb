@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161029015328) do
+ActiveRecord::Schema.define(version: 20161102021934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,17 +29,26 @@ ActiveRecord::Schema.define(version: 20161029015328) do
     t.index ["state_id"], name: "index_cities_on_state_id", using: :btree
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.integer  "restaurant_id"
+    t.string   "photo"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["restaurant_id"], name: "index_photos_on_restaurant_id", using: :btree
+  end
+
   create_table "restaurants", force: :cascade do |t|
     t.string   "companyNmae"
     t.string   "description"
     t.string   "cnpj"
     t.string   "fantasyName"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.decimal  "latitude",    precision: 13, scale: 11
+    t.decimal  "decimal",     precision: 13, scale: 11
+    t.decimal  "longitude",   precision: 13, scale: 11
     t.integer  "city_id"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "user_id"
     t.boolean  "open_sun"
     t.boolean  "open_mon"
@@ -72,15 +81,13 @@ ActiveRecord::Schema.define(version: 20161029015328) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.integer  "users_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-    t.index ["users_id"], name: "index_users_on_users_id", using: :btree
   end
 
   add_foreign_key "cities", "states"
+  add_foreign_key "photos", "restaurants"
   add_foreign_key "restaurants", "categories"
   add_foreign_key "restaurants", "cities"
   add_foreign_key "restaurants", "users"
-  add_foreign_key "users", "users", column: "users_id"
 end

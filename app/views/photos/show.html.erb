@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p style="display: none">
+  <strong>Restaurant:</strong>
+  <%= @photo.restaurant_id %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag @photo.photo.thumb.url %>
+</p>
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>
