@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :menus
   resources :photos
   root :to => "first_page#index"
   devise_for :users

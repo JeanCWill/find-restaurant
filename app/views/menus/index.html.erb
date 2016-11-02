@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Back', {controller: "restaurants", action: "index"} %>
+
+<h1>Menus</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="display: none">Restaurant</th>
+      <th>Menu</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @menus.each do |menu| %>
+      <tr>
+        <td style="display: none"><%= menu.restaurant_id %></td>
+        <td><%= image_tag menu.menu.thumb.url %></td>
+        <td><%= link_to 'Show', menu %></td>
+        <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Menu', {controller: "menus", action: "new", restaurant_id: @restaurant_id } %>
