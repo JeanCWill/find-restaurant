@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :menus
-  resources :photos
+  resources :menus, :menus_mobile
+  resources :photos, :photos_mobile
   root :to => "first_page#index"
   devise_for :users
   resources :restaurants, :restaurants_mobile

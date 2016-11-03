@@ -1,0 +1,2 @@
+module PhotosMobileHelper
+end
