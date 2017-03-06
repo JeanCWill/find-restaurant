@@ -5,7 +5,6 @@ class PhotosMobileController < ApplicationController
   # GET /photos.json
   def index
     @photos = Photo.where("restaurant_id = " + params[:restaurant_id])
-    @restaurant_id = params[:restaurant_id]
   end
 
   # GET /photos/1
@@ -16,6 +15,8 @@ class PhotosMobileController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_photo
+      puts "Parametros: "
+      puts params.inspect
       @photo = Photo.find(params[:id])
     end
 

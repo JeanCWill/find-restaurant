@@ -1,0 +1,2 @@
+module ReviewsMobileHelper
+end

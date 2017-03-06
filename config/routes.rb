@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :review_mobiles
+  resources :reviews
   resources :menus, :menus_mobile
   resources :photos, :photos_mobile
   root :to => "first_page#index"

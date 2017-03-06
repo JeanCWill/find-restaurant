@@ -1,0 +1,1 @@
+json.extract! review_mobile, :id, :created_at, :updated_at, :place, :price, :attendance, :food, :descriprion, :restaurant_id, :name

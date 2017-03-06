@@ -5,7 +5,6 @@ class MenusMobileController < ApplicationController
   # GET /menus.json
   def index
     @menus = Menu.where("restaurant_id = " + params[:restaurant_id])
-    @restaurant_id = params[:restaurant_id]
   end
 
   # GET /menus/1

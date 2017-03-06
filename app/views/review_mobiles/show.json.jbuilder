@@ -1,0 +1,1 @@
+json.partial! "review_mobiles/review_mobile", review_mobile: @review_mobile

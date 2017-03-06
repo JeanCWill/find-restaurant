@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  place: 1
+  price: 1
+  attendance: 1
+  food: 1
+  descriprion: MyString
+  restaurant: one
+
+two:
+  place: 1
+  price: 1
+  attendance: 1
+  food: 1
+  descriprion: MyString
+  restaurant: two

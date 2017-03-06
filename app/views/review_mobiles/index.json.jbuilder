@@ -1,0 +1,1 @@
+json.array! @review_mobiles, partial: 'review_mobiles/review_mobile', as: :review_mobile

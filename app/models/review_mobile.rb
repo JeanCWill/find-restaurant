@@ -1,0 +1,2 @@
+class ReviewMobile < ApplicationRecord
+end
