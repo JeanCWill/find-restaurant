@@ -1,16 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Reviews</h1>
+<%= link_to 'Voltar', {controller: "restaurants", action: "index"}, class: "btn btn-default" %>
 
-<table>
+<h1>Avaliações</h1>
+
+<table class="table">
   <thead>
     <tr>
-      <th>Place</th>
-      <th>Price</th>
-      <th>Attendance</th>
-      <th>Food</th>
-      <th>Descriprion</th>
-      <th>Restaurant</th>
+      <th>Lugar</th>
+      <th>Preço</th>
+      <th>Atendimento</th>
+      <th>Comida</th>
+      <th>Descrição</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,15 +24,9 @@
         <td><%= review.attendance %></td>
         <td><%= review.food %></td>
         <td><%= review.descriprion %></td>
-        <td><%= review.restaurant %></td>
-        <td><%= link_to 'Show', review %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Review', new_review_path %>

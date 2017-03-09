@@ -14,22 +14,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :companyNmae %>
+    <%= f.label :companyNmae, 'Nome do estabelecimento' %>
     <%= f.text_field :companyNmae %>
   </div>
 
   <div class="field">
-    <%= f.label :description %>
+    <%= f.label :description, 'Descrição' %>
     <%= f.text_field :description %>
   </div>
 
   <div class="field">
-    <%= f.label :cnpj %>
+    <%= f.label :cnpj, 'Cnpj' %>
     <%= f.text_field :cnpj %>
   </div>
 
   <div class="field">
-    <%= f.label :fantasyName %>
+    <%= f.label :fantasyName, 'Nome fantasia' %>
     <%= f.text_field :fantasyName %>
   </div>
 
@@ -44,47 +44,47 @@
   </div>
 
   <div class="field">
-    <%= f.label :city_id %>
+    <%= f.label :city_id, 'Cidade' %>
     <%= collection_select(:restaurant, :city_id, City.all, :id, :name) %>
   </div>
 
   <div class="field">
-    <%= f.label :category_id %>
+    <%= f.label :category_id, 'Categoria' %>
     <%= collection_select(:restaurant, :category_id, Category.all, :id, :name) %>
   </div>
 
   <div class="field">
-    <%= f.label :open_sun %>
+    <%= f.label :open_sun, 'Aberto segunda-feira?' %>
     <%= f.check_box :open_sun %>
   </div>
 
   <div class="field">
-    <%= f.label :open_mon %>
+    <%= f.label :open_mon, 'Aberto terça-feira?' %>
     <%= f.check_box :open_mon %>
   </div>
 
   <div class="field">
-    <%= f.label :open_tues %>
+    <%= f.label :open_tues, 'Aberto quarta-feira?' %>
     <%= f.check_box :open_tues %>
   </div>
 
   <div class="field">
-    <%= f.label :open_wed %>
+    <%= f.label :open_wed, 'Aberto quinta-feira?' %>
     <%= f.check_box :open_wed %>
   </div>
 
   <div class="field">
-    <%= f.label :open_thurs %>
+    <%= f.label :open_thurs, 'Aberto sexta-feira?' %>
     <%= f.check_box :open_thurs %>
   </div>
 
   <div class="field">
-    <%= f.label :open_fri %>
+    <%= f.label :open_fri, 'Aberto sabado?' %>
     <%= f.check_box :open_fri %>
   </div>
 
   <div class="field">
-    <%= f.label :open_sat %>
+    <%= f.label :open_sat, 'Aberto domingo?' %>
     <%= f.check_box :open_sat %>
   </div>
 

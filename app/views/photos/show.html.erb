@@ -6,9 +6,9 @@
 </p>
 
 <p>
-  <strong>Photo:</strong>
+  <strong>Foto:</strong>
   <%= image_tag @photo.photo.thumb.url %>
 </p>
 
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', {controller: "photos", action: "index", restaurant_id: @photo.restaurant_id} %>
+<%= link_to 'Editar', edit_photo_path(@photo) %> |
+<%= link_to 'Voltar', {controller: "photos", action: "index", restaurant_id: @photo.restaurant_id} %>

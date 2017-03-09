@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Back', {controller: "restaurants", action: "index"} %>
+<%= link_to 'Voltar', {controller: "restaurants", action: "index"}, class: "btn btn-default" %>
 
 <h1>Menus</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th style="display: none">Restaurant</th>
@@ -18,8 +18,8 @@
       <tr>
         <td style="display: none"><%= menu.restaurant_id %></td>
         <td><%= image_tag menu.menu.thumb.url %></td>
-        <td><%= link_to 'Show', menu %></td>
-        <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', menu, class:"btn btn-link" %></td>
+        <td><%= link_to 'Excluir', menu, method: :delete, data: { confirm: 'Deseja mesmo excluir o menu?' }, class:"btn btn-link" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Menu', {controller: "menus", action: "new", restaurant_id: @restaurant_id } %>
+<%= link_to 'Adicionar menu', {controller: "menus", action: "new", restaurant_id: @restaurant_id }, class: "btn btn-primary" %>

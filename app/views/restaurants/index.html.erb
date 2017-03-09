@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Restaurants</h1>
+<h1>Estabelecimentos</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Companynmae</th>
-      <th>Description</th>
+      <th>Estabelecimento</th>
+      <th>Descrição</th>
       <th>Cnpj</th>
-      <th>Fantasyname</th>
-      <th>City</th>
-      <th>Category</th>
-      <th colspan="3"></th>
+      <th>Nome fantasia</th>
+      <th>Cidade</th>
+      <th>Categoria</th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
@@ -24,11 +24,11 @@
         <td><%= restaurant.fantasyName %></td>
         <td><%= restaurant.city_id %></td>
         <td><%= restaurant.category_id %></td>
-        <td><%= link_to 'Photos', {controller: "photos", action: "index", restaurant_id: restaurant.id} %></td>
-        <td><%= link_to 'Menus', {controller: "menus", action: "index", restaurant_id: restaurant.id} %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Reviews', {controller: "reviews", action: "index", restaurant_id: restaurant.id} %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Fotos', {controller: "photos", action: "index", restaurant_id: restaurant.id}, class:"btn btn-link" %></td>
+        <td><%= link_to 'Menus', {controller: "menus", action: "index", restaurant_id: restaurant.id}, class: "btn btn-link" %></td>
+        <td><%= link_to 'Avaliações', {controller: "reviews", action: "index", restaurant_id: restaurant.id}, class: "btn btn-link" %></td>
+        <td><%= link_to 'Editar', edit_restaurant_path(restaurant), class: "btn btn-link" %></td>
+        <td><%= link_to 'Excluir', restaurant, method: :delete, data: { confirm: 'Deseja mesmo excluir o estabelecimento?' }, class: "btn btn-link" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+<%= link_to 'Adicionar estabelecimento', new_restaurant_path, class: "btn btn-primary" %>

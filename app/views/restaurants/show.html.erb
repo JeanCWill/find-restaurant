@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Companynmae:</strong>
+  <strong>Nome do estabelecimento:</strong>
   <%= @restaurant.companyNmae %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Descrição:</strong>
   <%= @restaurant.description %>
 </p>
 
@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  <strong>Fantasyname:</strong>
+  <strong>Nome fantasia:</strong>
   <%= @restaurant.fantasyName %>
 </p>
 
@@ -31,14 +31,14 @@
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong>Cidade:</strong>
   <%= @restaurant.city_id %>
 </p>
 
 <p>
-  <strong>Category:</strong>
+  <strong>Categoria:</strong>
   <%= @restaurant.category_id %>
 </p>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<%= link_to 'Editar', edit_restaurant_path(@restaurant) %> |
+<%= link_to 'Voltar', restaurants_path %>
