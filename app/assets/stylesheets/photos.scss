@@ -1,3 +1,15 @@
 // Place all the styles related to the Photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+    padding: 10px;
+}
+
+label {
+    width: 200px;
+    text-align: right;
+}
+
+#restaurant_companyNmae, #restaurant_description, #restaurant_fantasyName {
+    width: 400px;
+}

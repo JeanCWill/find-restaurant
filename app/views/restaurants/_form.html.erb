@@ -14,23 +14,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :companyNmae, 'Nome do estabelecimento' %>
+    <%= f.label :companyNmae, 'Nome do estabelecimento:' %>
     <%= f.text_field :companyNmae %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :fantasyName, 'Nome fantasia:' %>
+    <%= f.text_field :fantasyName %>
   </div>
 
   <div class="field">
-    <%= f.label :description, 'Descrição' %>
+    <%= f.label :description, 'Descrição:' %>
     <%= f.text_field :description %>
   </div>
 
   <div class="field">
-    <%= f.label :cnpj, 'Cnpj' %>
+    <%= f.label :cnpj, 'Cnpj:' %>
     <%= f.text_field :cnpj %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fantasyName, 'Nome fantasia' %>
-    <%= f.text_field :fantasyName %>
   </div>
 
   <div class="field" style="display: none;">
@@ -44,12 +44,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :city_id, 'Cidade' %>
+    <%= f.label :city_id, 'Cidade:' %>
     <%= collection_select(:restaurant, :city_id, City.all, :id, :name) %>
   </div>
 
   <div class="field">
-    <%= f.label :category_id, 'Categoria' %>
+    <%= f.label :category_id, 'Categoria:' %>
     <%= collection_select(:restaurant, :category_id, Category.all, :id, :name) %>
   </div>
 
@@ -91,7 +91,7 @@
   <div id="googleMap" style="width:100%;height:400px;"></div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-primary" %>
   </div>
 <% end %>
 
