@@ -17,8 +17,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :menu %>
+    <%= f.label :menu, 'Produto:' %>
     <%= f.file_field :menu %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :price, 'Preço:' %>
+    <%= f.text_field :price %>
   </div>
 
   <div class="actions">

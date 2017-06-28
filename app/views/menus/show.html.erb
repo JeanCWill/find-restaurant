@@ -6,9 +6,9 @@
 </p>
 
 <p>
-  <strong>Menu:</strong>
+  <strong>Produto:</strong>
   <%= image_tag @menu.menu.thumb.url %>
 </p>
 
-<%= link_to 'Edit', edit_menu_path(@menu) %> |
-<%= link_to 'Back', {controller: "menus", action: "index", restaurant_id: @menu.restaurant_id} %>
+<%= link_to 'Editar', edit_menu_path(@menu), class: "btn btn-primary"%> |
+<%= link_to 'Voltar', {controller: "menus", action: "index", restaurant_id: @menu.restaurant_id}, class: "btn btn-default" %>

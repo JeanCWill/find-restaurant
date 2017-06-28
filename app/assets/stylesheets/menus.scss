@@ -7,9 +7,17 @@ body {
 
 label {
     width: 200px;
-    text-align: right;
+    text-align: left;
 }
 
 #restaurant_companyNmae, #restaurant_description, #restaurant_fantasyName {
     width: 400px;
+}
+
+img {
+    max-height: 190px;
+}
+
+.btn-img {
+    width: 100%;
 }
